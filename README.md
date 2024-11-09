@@ -1,106 +1,144 @@
-## InnoCaption
-A Streamlit-based tool that makes online images more accessible by automatically generating captions. It also detects existing captions using Optical Character Recognition (OCR), making it perfect for users with visual impairments. The tool stores the captions along with image data in a MongoDB database for easy retrieval.
+## InnoCaption: Image Captioning and Accessibility Tool
 
-## Table of Contents
-Project Overview
-Tech Stack
-Features
-Installation
-Usage
-Folder Structure
-Contributing
-License
-Credits
-
-
-## Project Overview
-
-The Accessible Image Captioning Tool allows users to upload images, generate captions, and detect existing text via OCR to make images more accessible. The captions are customizable based on user preferences such as detailed, concise, or simplified language. The tool stores all captions and image details in a MongoDB database for easy reference and future use.
-
-This project is intended to provide a way for people with visual impairments to understand images on the web by generating or detecting captions that describe the content of the images.
-
-## Tech Stack
-
-Frontend: Streamlit (for building the web app)
-Model: BLIP (Bootstrapping Image Pre-training) for image captioning
-OCR: Tesseract for Optical Character Recognition (OCR) to detect existing text in images
-Database: MongoDB (for storing captions and image details)
-Backend: Python (for handling image caption generation and OCR processing)
+# Overview
+InnoCaption is a web-based tool designed to generate and detect captions for images, making visual content more accessible. The application leverages powerful image captioning models, Optical Character Recognition (OCR), and Google Translate for multi-language support. Additionally, the tool can read captions aloud using Google Text-to-Speech (gTTS) to ensure accessibility for users with visual impairments.
 
 ## Features
 
-Image Upload: Upload images in JPG, JPEG, or PNG formats.
-Caption Generation: Automatically generate captions for images using the BLIP model.
-OCR Support: Detect existing captions or text in images using OCR and use them if available.
-Customizable Captions: Choose between detailed, concise, or simplified captions based on your needs.
-MongoDB Storage: Captions and image metadata (such as image name and timestamp) are saved to MongoDB for future access.
-User Interface: Interactive and easy-to-use interface built using Streamlit.
+# 1. Image Upload
+
+Upload images in JPG, JPEG, or PNG format.
+
+Supports visual and textual content from images.
+
+# 2. Caption Generation
+
+Utilizes the BLIP (Bootstrapping Image Pretraining) model to generate captions for uploaded images.
+
+You can choose between three different caption styles:
+
+Detailed
+
+Concise
+
+Simple Language
+
+# 3. Caption Detection
+
+If the image contains an existing caption, the tool automatically detects it using OCR (Optical Character Recognition) via pytesseract.
+
+# 4. Translation
+
+Translates captions into multiple languages including Spanish, French, German, Italian, Portuguese, and more, using Google Translate.
+
+# 5. Voice Feedback
+
+Generates voice feedback of the captions using Google Text-to-Speech (gTTS).
+
+Allows users to listen to the generated captions and translations.
+
+# 6. MongoDB Integration
+
+Stores captions along with metadata (image name, timestamp) in a MongoDB database.
+
+Provides an option to view stored captions via the sidebar.
+
+# 7. User Feedback
+
+Users can submit feedback or suggestions directly in the app.
+
+Feedback is stored in the backend for future improvements.
+
+# 8. Accessible Documentation
+
+Audio-based documentation explains the use of the tool and its features, enhancing the accessibility for users with visual impairments.
+
+# 9. Interactive Sidebar
+
+View and manage saved captions.
+
+Customize caption styles.
+
+Select target language for translation.
+
+## Technologies Used
+
+Streamlit: A Python framework for creating interactive web applications.
+
+BLIP: A pre-trained model used for image caption generation.
+
+pytesseract: Python library used for optical character recognition (OCR).
+
+gTTS (Google Text-to-Speech): Used for generating voice feedback.
+
+Google Translate: For translating captions into different languages.
+
+MongoDB: Cloud-based database for storing captions and feedback.
+
+PIL (Python Imaging Library): Used for image processing.
 
 ## Installation
-# Prerequisites
-Before you begin, ensure that you have the following installed on your system:
 
-Python 3.8 or above
+Clone the repository:
 
-MongoDB (you can use MongoDB Atlas if you prefer cloud storage)
-Step 1: Clone the Repository
-''
-git clone https://github.com/yourusername/accessible-image-captioning.git''
-cd accessible-image-captioning
-Step 2: Set up a Virtual Environment (optional but recommended)
 bash
 Copy code
-python3 -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-Step 3: Install the Dependencies
-Install the necessary Python libraries by running:
+git clone https://github.com/your-repo/inno-caption.git
+Install required Python packages:
 
 bash
 Copy code
 pip install -r requirements.txt
-Step 4: Set Up MongoDB
-If you're using MongoDB Atlas, create an account and set up a cluster.
-If you're using local MongoDB, make sure MongoDB is installed and running.
-Update the uri in the script to reflect your MongoDB connection string.
-Step 5: Run the Streamlit App
-Once everything is set up, you can start the app with:
+Run the Streamlit app:
 
 bash
 Copy code
 streamlit run app.py
-This will open the application in your default web browser.
 
 ## Usage
-Upload an Image: Drag and drop or select an image in JPG, JPEG, or PNG format.
-Choose Caption Style: Select one of the following caption styles from the sidebar:
-Detailed: A full, descriptive caption of the image.
-Concise: A shortened version of the caption.
-Simple Language: A simplified description of the image.
-Generate Caption: The tool will generate a caption for the image. If there is any existing text in the image, the OCR functionality will detect it and use it as the caption.
-View Saved Captions: The captions will be stored in MongoDB, and you can view the most recent ones in the sidebar.
-Folder Structure
-plaintext
+
+Upload Image: Use the "Upload Image" button to upload your desired image in JPG, JPEG, or PNG format.
+
+Generate Caption: The tool will automatically generate a caption for the uploaded image. Choose from different caption styles (Detailed, Concise, Simple Language) for customization.
+
+Voice Feedback: You can listen to the generated caption using the voice feedback option. If the caption is translated, the translated caption is also read aloud.
+
+Translate Caption: Select the language you want the caption to be translated into (if applicable).
+
+Save to MongoDB: The image name, caption, and timestamp are saved to a MongoDB database for later access.
+
+Provide Feedback: Share your feedback or suggestions in the provided feedback section.
+
+## MongoDB Configuration
+
+InnoCaption uses MongoDB to store image captions and user feedback. Ensure that you have a MongoDB cluster set up. You can sign up for a free MongoDB Atlas account if you don't have one.
+
+MongoDB URI: The application uses a URI to connect to MongoDB. Replace the uri in the script with your own MongoDB connection string.
+
+python
 Copy code
-accessible-image-captioning/
-│
-├── app.py                # Main Streamlit app file
-├── requirements.txt      # Required Python libraries
-├── assets/               # (Optional) Folder for storing image assets
-├── README.md             # This file
-└── utils.py              # Helper functions for OCR and MongoDB operations
-Contributing
-We welcome contributions to improve this tool! If you'd like to help, follow these steps:
+uri = "mongodb+srv://your-mongo-credentials@cluster-url.mongodb.net/?retryWrites=true&w=majority"
 
-Fork the repository.
-Create a new branch (git checkout -b feature-name).
-Commit your changes (git commit -am 'Add new feature').
-Push to the branch (git push origin feature-name).
-Open a pull request.
-License
-This project is licensed under the MIT License - see the LICENSE file for more details.
+# Database and Collections:
 
-Credits
-BLIP (Bootstrapping Image Pre-training): For the image captioning model. BLIP GitHub
-Streamlit: For building the interactive web interface. Streamlit
-Tesseract: For Optical Character Recognition (OCR). Tesseract OCR GitHub
-MongoDB: For storing captions and image metadata. MongoDB
+The captions are stored in the captions collection of the image_captioning database.
+
+You can add additional collections for feedback or other purposes as needed.
+
+## Contributing
+
+We welcome contributions to improve the functionality of InnoCaption. If you'd like to contribute, feel free to fork the repository and submit a pull request.
+
+## License
+
+This project is open-source and available under the MIT License. See the LICENSE file for more information.
+
+## Acknowledgments
+
+BLIP: For image captioning.
+
+pytesseract: For OCR functionality.
+
+gTTS: For text-to-speech conversion.
+
+Google Translate: For multilingual support.
