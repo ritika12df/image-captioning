@@ -94,7 +94,7 @@ pip install -r requirements.txt
 Run the Streamlit app:
 
 ```bash
-streamlit run app.py
+streamlit run image_captioning_app.py
 ```
 
 ## Additional Steps
