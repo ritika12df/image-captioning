@@ -79,35 +79,36 @@ PIL (Python Imaging Library): Used for image processing.
 
 ## Installation
 
-Clone the repository:
+`- Clone the repository:
 
-bash
-Copy code
-git clone https://github.com/your-repo/inno-caption.git
+```bash
+git clone https://github.com/ritika12df/image-captioning
+cd image-captioning
+```
+
 Install required Python packages:
 
-bash
-Copy code
+```bash
 pip install -r requirements.txt
+```
 Run the Streamlit app:
 
-bash
-Copy code
+```bash
 streamlit run app.py
-
+```
 ## Usage
 
-Upload Image: Use the "Upload Image" button to upload your desired image in JPG, JPEG, or PNG format.
+- Upload Image: Use the "Upload Image" button to upload your desired image in JPG, JPEG, or PNG format.
 
-Generate Caption: The tool will automatically generate a caption for the uploaded image. Choose from different caption styles (Detailed, Concise, Simple Language) for customization.
+- Generate Caption: The tool will automatically generate a caption for the uploaded image. Choose from different caption styles (Detailed, Concise, Simple Language) for customization.
 
-Voice Feedback: You can listen to the generated caption using the voice feedback option. If the caption is translated, the translated caption is also read aloud.
+- Voice Feedback: You can listen to the generated caption using the voice feedback option. If the caption is translated, the translated caption is also read aloud.
 
-Translate Caption: Select the language you want the caption to be translated into (if applicable).
+- Translate Caption: Select the language you want the caption to be translated into (if applicable).
 
-Save to MongoDB: The image name, caption, and timestamp are saved to a MongoDB database for later access.
+- Save to MongoDB: The image name, caption, and timestamp are saved to a MongoDB database for later access.
 
-Provide Feedback: Share your feedback or suggestions in the provided feedback section.
+- Provide Feedback: Share your feedback or suggestions in the provided feedback section.
 
 ## MongoDB Configuration
 
@@ -115,10 +116,9 @@ InnoCaption uses MongoDB to store image captions and user feedback. Ensure that 
 
 MongoDB URI: The application uses a URI to connect to MongoDB. Replace the uri in the script with your own MongoDB connection string.
 
-python
-Copy code
+```bash
 uri = "mongodb+srv://your-mongo-credentials@cluster-url.mongodb.net/?retryWrites=true&w=majority"
-
+```
 # Database and Collections:
 
 The captions are stored in the captions collection of the image_captioning database.
