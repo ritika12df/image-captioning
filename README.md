@@ -96,6 +96,17 @@ Run the Streamlit app:
 ```bash
 streamlit run app.py
 ```
+
+## Additional Steps
+
+Make sure to install Tesseract OCR (which pytesseract depends on) separately on your system:
+
+- For Ubuntu: sudo apt install tesseract-ocr
+
+- For Mac (using Homebrew): brew install tesseract
+
+- For Windows, download the installer from the Tesseract GitHub page.
+
 ## Usage
 
 - Upload Image: Use the "Upload Image" button to upload your desired image in JPG, JPEG, or PNG format.
