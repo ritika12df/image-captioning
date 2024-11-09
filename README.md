@@ -1,4 +1,4 @@
-## InnoCaption: Image Captioning and Accessibility Tool
+## InCaption: Image Captioning & Accessibility
 
 # Overview
 InnoCaption is a web-based tool designed to generate and detect captions for images, making visual content more accessible. The application leverages powerful image captioning models, Optical Character Recognition (OCR), and Google Translate for multi-language support. Additionally, the tool can read captions aloud using Google Text-to-Speech (gTTS) to ensure accessibility for users with visual impairments.
