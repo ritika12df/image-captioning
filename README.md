@@ -5,55 +5,55 @@ InnoCaption is a web-based tool designed to generate and detect captions for ima
 
 ## Features
 
-# 1. Image Upload
+# Image Upload
 
 Upload images in JPG, JPEG, or PNG format.
 
 Supports visual and textual content from images.
 
-# 2. Caption Generation
+# Caption Generation
 
 Utilizes the BLIP (Bootstrapping Image Pretraining) model to generate captions for uploaded images.
 
 You can choose between three different caption styles:
 
-Detailed
+- Detailed
 
-Concise
+- Concise
 
-Simple Language
+- Simple Language
 
-# 3. Caption Detection
+# Caption Detection
 
 If the image contains an existing caption, the tool automatically detects it using OCR (Optical Character Recognition) via pytesseract.
 
-# 4. Translation
+# Translation
 
 Translates captions into multiple languages including Spanish, French, German, Italian, Portuguese, and more, using Google Translate.
 
-# 5. Voice Feedback
+# Voice Feedback
 
 Generates voice feedback of the captions using Google Text-to-Speech (gTTS).
 
 Allows users to listen to the generated captions and translations.
 
-# 6. MongoDB Integration
+# MongoDB Integration
 
 Stores captions along with metadata (image name, timestamp) in a MongoDB database.
 
 Provides an option to view stored captions via the sidebar.
 
-# 7. User Feedback
+# User Feedback
 
 Users can submit feedback or suggestions directly in the app.
 
 Feedback is stored in the backend for future improvements.
 
-# 8. Accessible Documentation
+# Accessible Documentation
 
 Audio-based documentation explains the use of the tool and its features, enhancing the accessibility for users with visual impairments.
 
-# 9. Interactive Sidebar
+# Interactive Sidebar
 
 View and manage saved captions.
 
